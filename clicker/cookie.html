@@ -5,15 +5,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Droop Clicker</title>
-    <link rel="stylesheet" href="clicker.css"> <!-- Inclusion du fichier CSS -->
+    <link rel="stylesheet" href="clicker.css">
 </head>
-<audio id="background-music" src="musiquefond.mp3" loop autoplay></audio>
 <body>
     <h1>Droop Clicker</h1>
     <div id="score">Score: 0</div>
     <button id="cookie">
         <img src="clicker.png" alt="Clicker" width="100%" height="100%"/>
     </button>
-    <script src="cookie.js"></script> <!-- Inclusion du fichier JavaScript -->
+    <button id="play-music">Jouer Musique</button>
+    <button id="real-music" style="display:none;">Vraie Musique ➡</button>
+    <audio id="background-music" src="musiquefond.mp3" loop></audio>
+
+    <!-- Menu -->
+    <button id="menu-button">Menu</button>
+    <div id="menu">
+        <h2>Options</h2>
+        <ul>
+            <li><button id="option1">Améliorer le clic</button></li>
+            <li><button id="option2">Statistiques</button></li>
+            <li><button id="option3">Options</button></li>
+            <li><button id="option4">Aide</button></li>
+        </ul>
+    </div>
+
+    <script src="cookie.js"></script>
 </body>
 </html>

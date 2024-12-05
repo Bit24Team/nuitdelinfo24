@@ -2,7 +2,7 @@
 html, body {
     height: 100%;
     margin: 0;
-    overflow: hidden; /* Empêche les barres de défilement */
+    overflow: hidden;
 }
 
 body {
@@ -10,14 +10,14 @@ body {
     font-family: Arial, sans-serif;
     text-align: center;
     padding-top: 50px;
-    position: relative; /* Position relative pour positionner les éléments à l'intérieur */
+    position: relative;
 }
 
 /* Titre principal */
 h1 {
     font-family: 'Press Start 2P', Arial, sans-serif;
     color: #ff9900;
-    font-size: 2.5em; /* Taille du titre */
+    font-size: 2.5em;
     margin-bottom: 20px;
 }
 
@@ -26,7 +26,7 @@ h1 {
     font-family: 'Press Start 2P', Arial, sans-serif;
     font-size: 2em;
     margin: 20px 0;
-    color: #ffffff; /* Couleur blanche pour le score */
+    color: #ffffff;
 }
 
 /* Bouton Clicker */
@@ -40,7 +40,7 @@ h1 {
     outline: none;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
     transition: box-shadow 0.3s, transform 0.3s;
-    position: absolute; /* Permet de déplacer le bouton à une position spécifique */
+    position: absolute;
 }
 
 #cookie:hover {
@@ -64,4 +64,95 @@ button:hover {
     background-color: #ff9900;
     color: #fff;
     transform: scale(1.1);
+}
+
+/* Menu */
+#menu {
+    position: absolute;
+    right: 0;
+    top: 100px;
+    background-color: #003366;
+    color: white;
+    padding: 20px;
+    width: 200px;
+    display: none; /* Cacher le menu par défaut */
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5);
+    border-radius: 5px;
+}
+
+#menu.active {
+    display: block; /* Afficher le menu quand la classe active est ajoutée */
+}
+
+#menu h2 {
+    font-family: 'Press Start 2P', Arial, sans-serif;
+    font-size: 1.5em;
+    margin-bottom: 20px;
+}
+
+#menu ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+#menu li {
+    margin-bottom: 10px;
+}
+
+#menu li button {
+    width: 100%;
+}
+
+/* Bouton du menu */
+#menu-button {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background-color: #ffcc00;
+    color: #000;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#menu-button:hover {
+    background-color: #ffaa00;
+}
+
+
+#play-music {
+    position: fixed;
+    top: 10px; /* Ajuste la distance du haut si nécessaire */
+    left: 10px; /* Positionne à 10px du côté gauche */
+    z-index: 10; /* Assure-toi que le bouton soit au-dessus des autres éléments */
+    padding: 10px 15px;
+    background-color: #ffcc00;
+    color: rgb(0, 0, 0);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#play-music:hover {
+    background-color: #ffcc00;
+}
+
+
+#real-music {
+    position: fixed;
+    bottom: 20px; /* 20px à partir du bas de la fenêtre */
+    left: 20px;   /* 20px à partir de la gauche de la fenêtre */
+    z-index: 10;
+    padding: 10px 15px;
+    background-color: #FF6347; /* Un autre style pour différencier le bouton */
+    color: black;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#real-music:hover {
+    background-color: #FF4500;
 }
