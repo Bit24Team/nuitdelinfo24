@@ -1,64 +1,11 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Droop Clicker</title>
-    <style>
-        html, body {
-            height: 100%;
-            margin: 0;
-            overflow: hidden; /* Empêche les barres de défilement */
-        }
-
-        body {
-            background: linear-gradient(to bottom, #003366, #66ccff);
-            font-family: Arial, sans-serif;
-            text-align: center;
-            padding-top: 50px;
-            position: relative; /* Position relative pour positionner les éléments à l'intérieur */
-        }
-
-        #cookie {
-            width: 150px;
-            height: 150px;
-            border: 3px solid rgba(255, 153, 0, 0.7);
-            background: transparent;
-            cursor: pointer;
-            border-radius: 50%;
-            outline: none;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-            transition: box-shadow 0.3s, transform 0.3s;
-            position: absolute; /* Permet de déplacer le bouton à une position spécifique */
-        }
-
-        #cookie:hover {
-            transform: scale(1.1);
-            box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
-        }
-
-        #score {
-            font-size: 2em;
-            margin: 20px 0;
-        }
-
-        button {
-            padding: 10px 20px;
-            font-size: 1em;
-            margin: 10px;
-            border-radius: 5px;
-            background-color: transparent;
-            border: 2px solid #ff9900;
-            cursor: pointer;
-            transition: background-color 0.3s, transform 0.3s;
-        }
-
-        button:hover {
-            background-color: #ff9900;
-            color: #fff;
-            transform: scale(1.1);
-        }
-    </style>
+    <link rel="stylesheet" href="clicker.css"> <!-- Inclusion du fichier CSS -->
 </head>
 <audio id="background-music" src="musiquefond.mp3" loop autoplay></audio>
 <body>
@@ -67,39 +14,6 @@
     <button id="cookie">
         <img src="clicker.png" alt="Clicker" width="100%" height="100%"/>
     </button>
-    <script>
-        // Initialisation du score
-        let score = 0;
-        let clickCount = 0;
-
-        // Sélection des éléments du DOM
-        const scoreDisplay = document.getElementById('score');
-        const cookieButton = document.getElementById('cookie');
-
-        // Fonction pour générer une position aléatoire sur l'écran
-        function getRandomPosition() {
-            const maxWidth = window.innerWidth - cookieButton.offsetWidth; // Largeur maximale disponible
-            const maxHeight = window.innerHeight - cookieButton.offsetHeight; // Hauteur maximale disponible
-            const randomX = Math.random() * maxWidth; // Position X aléatoire
-            const randomY = Math.random() * maxHeight; // Position Y aléatoire
-            return { x: randomX, y: randomY };
-        }
-
-        // Fonction pour gérer le clic sur le cookie
-        cookieButton.addEventListener('click', () => {
-            score++;
-            scoreDisplay.textContent = `Score: ${score}`;
-            clickCount++;
-
-            // Change la position du bouton après un nombre aléatoire de clics entre 5 et 20
-            const randomClicks = Math.floor(Math.random() * (20 - 5 + 1)) + 5; // Nombre de clics entre 5 et 20
-            if (clickCount >= randomClicks) {
-                clickCount = 0; // Réinitialise le compteur de clics
-                const newPos = getRandomPosition(); // Obtenir une nouvelle position aléatoire
-                cookieButton.style.left = `${newPos.x}px`; // Applique la nouvelle position X
-                cookieButton.style.top = `${newPos.y}px`;  // Applique la nouvelle position Y
-            }
-        });
-    </script>
+    <script src="cookie.js"></script> <!-- Inclusion du fichier JavaScript -->
 </body>
 </html>
