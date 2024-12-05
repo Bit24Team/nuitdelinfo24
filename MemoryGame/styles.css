@@ -6,106 +6,124 @@ body {
     color: #f1f1f1;
     margin: 0;
     padding: 20px;
-  }
-  
-  h1 {
+}
+
+h1 {
     margin-bottom: 20px;
     font-size: 2rem;
-  }
-  
-  .game-container {
+}
+
+.game-container {
     max-width: 600px;
     margin: auto;
-  }
-  
-  .memory-game {
+}
+
+.memory-game {
     display: grid;
-    grid-template-columns: repeat(4, 100px);
-    gap: 10px;
+    grid-template-columns: repeat(5, 150px); /* Ajustez le nombre de colonnes en fonction du nombre de cartes */
+    gap: 15px; /* Espacement entre les cartes, prenant en compte les bordures */
     justify-content: center;
-  }
-  
-  .card {
-    width: 100px;
-    height: 100px;
+    padding: 10px;
+}
+
+.card {
+    width: 150px;
+    height: 150px;
     perspective: 1000px;
-    animation: fadeIn 0.8s ease;
-  }
-  
-  .card-inner {
+    border-radius: 10px; /* Arrondir les bords des cartes */
+    transition: border-color 0.3s ease;
+    margin: 0;
+}
+
+/* Définir un contour de carte */
+.card-inner {
     position: relative;
     width: 100%;
     height: 100%;
     transform-style: preserve-3d;
     transform: rotateY(0);
     transition: transform 0.6s ease-in-out;
-  }
-  
-  .card.flip .card-inner {
+}
+
+.card.flip .card-inner {
     transform: rotateY(180deg);
-  }
-  
-  .front, .back {
+}
+
+.front,
+.back {
     position: absolute;
     width: 100%;
     height: 100%;
     backface-visibility: hidden;
     border-radius: 8px;
-  }
-  
-  .front {
+    box-sizing: border-box; /* Ajouté pour inclure les bordures dans la taille totale */
+}
+
+.front {
     background: #2d2d3e;
     display: flex;
     align-items: center;
     justify-content: center;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
-  }
-  
-  .back {
+}
+
+.back {
     background-size: cover;
     background-position: center;
     transform: rotateY(180deg);
-  }
-  
-  #win-message {
+    border: 5px solid transparent; /* Contour invisible au départ */
+    transition: border 0.3s ease; /* Transition douce du contour */
+}
+
+/* Lorsque la carte est retournée, afficher le contour */
+.card.flip .back {
+    border: 5px solid; /* Montre la bordure */
+}
+
+#win-message {
     margin-top: 20px;
     font-size: 1.5rem;
     color: #00ff88;
-  }
-  
-  .hidden {
+}
+
+.hidden {
     display: none;
-  }
-  
-  /* Animation fade-in pour l'apparition des cartes */
-  @keyframes fadeIn {
+}
+
+/* Animation fade-in pour l'apparition des cartes */
+@keyframes fadeIn {
     from {
-      opacity: 0;
-      transform: scale(0.9);
+        opacity: 0;
+        transform: scale(0.9);
     }
+
     to {
-      opacity: 1;
-      transform: scale(1);
+        opacity: 1;
+        transform: scale(1);
     }
-  }
-  
-  /* Animation vibrante pour le clic */
-  .card:active {
+}
+
+/* Animation vibrante pour le clic */
+.card:active {
     animation: shake 0.4s ease;
-  }
-  
-  @keyframes shake {
-    0%, 100% {
-      transform: rotate(0);
+}
+
+@keyframes shake {
+
+    0%,
+    100% {
+        transform: rotate(0);
     }
+
     25% {
-      transform: rotate(2deg);
+        transform: rotate(2deg);
     }
+
     75% {
-      transform: rotate(-2deg);
+        transform: rotate(-2deg);
     }
-  }
-  
+}
+
 #start-button {
     padding: 10px 20px;
     font-size: 1rem;
@@ -115,19 +133,36 @@ body {
     border-radius: 5px;
     cursor: pointer;
     margin-bottom: 20px;
-    transition: background-color 0.3s;
-  }
-  
+    transition: all 0.3s;
+}
+
 #start-button:hover {
     background-color: #2c7cb6;
-  }
-  
+    transform: scale(1.05);
+}
+
+#replay-button {
+    padding: 10px 20px;
+    font-size: 1rem;
+    color: white;
+    background-color: #3498db;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 20px;
+    transition: all 0.3s;
+}
+
+#replay-button:hover {
+    background-color: #2c7cb6;
+    transform: scale(1.05);
+}
 
 .scoreboard {
     display: flex;
     justify-content: space-between;
     margin-bottom: 10px;
-    font-size: 1rem;
+    font-size: 1.5rem;
     color: #fff;
-  }
-  
+}
+
