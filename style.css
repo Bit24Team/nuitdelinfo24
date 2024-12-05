@@ -113,6 +113,7 @@ main {
 }
 
 .foundation {
+    margin: 20px 0px;
     background: rgba(255, 255, 255, 0.8); /* Transparence blanche */
     color: #003366; /* Bleu marine */
     padding: 20px;
@@ -132,20 +133,6 @@ main {
     font-size: 18px;
     line-height: 1.6;
     margin-bottom: 15px;
-}
-
-.foundation .learn-more {
-    display: inline-block;
-    padding: 10px 20px;
-    background: #00CED1; /* Turquoise clair */
-    color: #FFFFFF;
-    text-decoration: none;
-    border-radius: 5px;
-    transition: background 0.3s ease;
-}
-
-.foundation .learn-more:hover {
-    background: #1E90FF; /* Bleu vif */
 }
 
 /* Personnalisation de la barre de scroll */
@@ -177,4 +164,30 @@ body {
 .sidebar img {
     padding-top: 1em;
     padding-left: 1em;
+}
+
+.play {
+    padding: 9px 20px;
+}
+
+.foundation a {
+    display: inline-block;
+    background: #00CED1; /* Turquoise clair */
+    color: #FFFFFF;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background 0.3s ease;
+    margin-right: 10px;
+}
+
+.foundation a:hover {
+    background: #1E90FF; /* Bleu vif */
+}
+
+.learn-more {
+    padding: 10px 20px;
+}
+
+#buttons {
+    display: flex;
 }
