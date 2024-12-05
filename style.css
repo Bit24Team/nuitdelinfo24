@@ -1,39 +1,42 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
-
+/* Corps */
 body {
-    background: linear-gradient(135deg, #800080 30%, #87CEFA 100%);
+    background: linear-gradient(120deg, #1E90FF 40%, #87CEFA 100%);
     margin: 0;
     padding: 0;
-    height: 100vh;
+    font-family: "Arial", sans-serif;
+    color: #FFFFFF;
     display: flex;
-    justify-content: center;
-    align-items: center;
-    font-family:"Montserrat" ,Arial, sans-serif;
-    color: white;
+    flex-direction: column;
+    min-height: 100vh;
 }
-*{
-    margin: 0;
-    padding: 0;
-    list-style: none;
-    text-decoration: none;
 
+#check {
+    display: none;
 }
+
+/* Sidebar */
 .sidebar {
     position: fixed;
     left: -250px;
     width: 250px;
     height: 100%;
-    background: #4B0082; /* Indigo pour un violet sombre en accord avec le gradient */
+    background: rgba(3, 37, 76, 0.95); /* Bleu marine translucide */
     transition: all 0.5s ease;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
 }
 
 .sidebar header {
-    font-size: 22px;
-    color: #E6E6FA; /* Lavande pâle pour un bon contraste */
-    text-align: center;
+    font-size: 24px;
+    color: #00CED1; /* Turquoise clair */
     line-height: 70px;
-    background: #6A5ACD; /* Bleu indigo plus clair */
+    background: rgba(0, 128, 255, 0.8); /* Bleu profond */
     user-select: none;
+}
+
+.sidebar ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
 }
 
 .sidebar ul a {
@@ -41,50 +44,51 @@ body {
     height: 100%;
     width: 100%;
     line-height: 65px;
-    font-size: 20px;
-    color: #E6E6FA; /* Lavande pâle */
-    padding-left: 40px;
+    font-size: 18px;
+    color: #E0FFFF; /* Blanc cassé */
+    padding-left: 20px;
     box-sizing: border-box;
-    border-top: 1px solid rgba(230, 230, 250, 0.3); /* Transparent lavande */
-    border-bottom: 1px solid #4B0082; /* Indigo sombre */
+    text-decoration: none;
     transition: 0.4s;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 ul li:hover a {
-    padding-left: 50px;
+    padding-left: 30px;
+    color: #00CED1; /* Turquoise clair */
 }
 
 .sidebar ul a i {
-    margin-right: 16px;   
+    margin-right: 16px;
 }
 
-#check {
-    display: none;
-}
-
+/* Boutons sidebar */
 label #btn, label #cancel {
     position: absolute;
     cursor: pointer;
-    background: #6A5ACD; /* Indigo clair */
-    border-radius: 3px;
+    background: #1E90FF; /* Bleu vif */
+    border-radius: 50%;
+    text-align: center;
+    line-height: 40px;
+    color: #FFFFFF;
+    font-size: 20px;
+    margin-top: 7px;
 }
 
 label #btn {
-    left: 40px;
-    top: 25px;
-    font-size: 35px;
-    color: #E6E6FA; /* Lavande pâle */
-    padding: 6px 12px;
+    left: 20px;
+    top: 20px;
+    width: 40px;
+    height: 40px;
     transition: all 0.5s ease;
 }
 
 label #cancel {
     z-index: 1111;
-    left: -195px;
-    top: 17px;
-    font-size: 30px;
-    color: #B0E0E6; /* Bleu pâle pour rappeler le bleu ciel */
-    padding: 4px 9px;
+    left: -50px;
+    top: 20px;
+    width: 40px;
+    height: 40px;
     transition: all 0.5s ease;
 }
 
@@ -99,5 +103,78 @@ label #cancel {
 }
 
 #check:checked ~ label #cancel {
-    left: 195px;
+    left: 200px;
+}
+
+/* Section Fondation */
+main {
+    margin-left: 250px;
+    padding: 20px;
+}
+
+.foundation {
+    background: rgba(255, 255, 255, 0.8); /* Transparence blanche */
+    color: #003366; /* Bleu marine */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    margin-right: 275px;
+}
+
+.foundation h1 {
+    margin-top: 0px;
+    font-size: 30px;
+    color: #1E90FF; /* Bleu vif */
+    margin-bottom: 20px;
+}
+
+.foundation p {
+    font-size: 18px;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+.foundation .learn-more {
+    display: inline-block;
+    padding: 10px 20px;
+    background: #00CED1; /* Turquoise clair */
+    color: #FFFFFF;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background 0.3s ease;
+}
+
+.foundation .learn-more:hover {
+    background: #1E90FF; /* Bleu vif */
+}
+
+/* Personnalisation de la barre de scroll */
+body {
+    scrollbar-width: thin; /* Mince pour les navigateurs supportant Firefox */
+    scrollbar-color: #1E90FF rgba(255, 255, 255, 0.3); /* Couleurs pour Firefox */
+}
+
+::-webkit-scrollbar {
+    width: 8px; /* Largeur de la barre verticale */
+    height: 8px; /* Hauteur de la barre horizontale */
+}
+
+::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.2); /* Fond semi-transparent */
+    border-radius: 10px; /* Coins arrondis */
+}
+
+::-webkit-scrollbar-thumb {
+    background: #1E90FF; /* Bleu vif */
+    border-radius: 10px; /* Coins arrondis */
+    border: 2px solid rgba(255, 255, 255, 0.5); /* Bord clair pour l'intégration */
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #00CED1; /* Changement de couleur au survol */
+}
+
+.sidebar img {
+    padding-top: 1em;
+    padding-left: 1em;
 }
