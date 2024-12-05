@@ -1,52 +1,67 @@
+/* Corps de la page */
 html, body {
-    height: 100%; /* Assurez-vous que la hauteur du corps et du HTML est de 100% */
-    margin: 0;    /* Supprimez les marges par défaut */
+    height: 100%;
+    margin: 0;
+    overflow: hidden; /* Empêche les barres de défilement */
 }
 
 body {
     background: linear-gradient(to bottom, #003366, #66ccff);
     font-family: Arial, sans-serif;
     text-align: center;
-    padding-top: 50px;  /* Ajout de padding top pour décaler le contenu */
+    padding-top: 50px;
+    position: relative; /* Position relative pour positionner les éléments à l'intérieur */
 }
 
+/* Titre principal */
+h1 {
+    font-family: 'Press Start 2P', Arial, sans-serif;
+    color: #ff9900;
+    font-size: 2.5em; /* Taille du titre */
+    margin-bottom: 20px;
+}
+
+/* Score */
+#score {
+    font-family: 'Press Start 2P', Arial, sans-serif;
+    font-size: 2em;
+    margin: 20px 0;
+    color: #ffffff; /* Couleur blanche pour le score */
+}
+
+/* Bouton Clicker */
 #cookie {
     width: 150px;
     height: 150px;
-    border: 3px solid rgba(255, 153, 0, 0.7); /* Bordure visible mais légère */
-    background: transparent; /* Fond transparent */
+    border: 3px solid rgba(255, 153, 0, 0.7);
+    background: transparent;
     cursor: pointer;
-    border-radius: 50%; /* Bord arrondi pour ressembler à un bouton circulaire */
-    outline: none; /* Retirer l'outline de focus */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Légère ombre pour ajouter de la profondeur */
-    transition: box-shadow 0.3s, transform 0.3s; /* Animation de l'ombre et de la transformation */
+    border-radius: 50%;
+    outline: none;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    transition: box-shadow 0.3s, transform 0.3s;
+    position: absolute; /* Permet de déplacer le bouton à une position spécifique */
 }
 
 #cookie:hover {
-    transform: scale(1.1); /* Effet de zoom au survol */
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3); /* Augmenter l'ombre au survol */
+    transform: scale(1.1);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
 }
 
-#score {
-    font-size: 2em;
-    margin: 20px 0;
-}
-
+/* Boutons en général */
 button {
     padding: 10px 20px;
     font-size: 1em;
     margin: 10px;
     border-radius: 5px;
-    background-color: transparent; /* Fond transparent */
-    border: 2px solid #ff9900; /* Bordure du bouton */
+    background-color: transparent;
+    border: 2px solid #ff9900;
     cursor: pointer;
-    transition: background-color 0.3s, transform 0.3s; /* Animation de fond et de transformation */
+    transition: background-color 0.3s, transform 0.3s;
 }
 
 button:hover {
     background-color: #ff9900;
     color: #fff;
-    transform: scale(1.1); /* Effet de zoom au survol */
+    transform: scale(1.1);
 }
-
-
