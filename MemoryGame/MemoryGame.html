@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jeu de Mémoire</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="game-container">
+    <h1>Jeu de Mémoire</h1>
+    <div class="scoreboard">
+      <span id="timer">⏱ Temps : 0s</span>
+      <span id="highscore">🏆 Meilleur temps : --</span>
+    </div>
+    <button id="start-button">Commencer le jeu</button>
+    <div class="memory-game" id="memory-game"></div>
+    <div id="win-message" class="hidden">
+      🎉 Félicitations ! Vous avez trouvé toutes les paires en <span id="final-time"></span> secondes ! 🎉
+    </div>
+    <div id="win-message" class="hidden">
+        🎉 Félicitations ! Vous avez trouvé toutes les paires en <span id="final-time"></span> secondes ! 🎉
+        <button id="replay-button">Rejouer</button>
+      </div>      
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>

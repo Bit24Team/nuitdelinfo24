@@ -1,0 +1,133 @@
+/* Thème sombre */
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #1e1e2f;
+    color: #f1f1f1;
+    margin: 0;
+    padding: 20px;
+  }
+  
+  h1 {
+    margin-bottom: 20px;
+    font-size: 2rem;
+  }
+  
+  .game-container {
+    max-width: 600px;
+    margin: auto;
+  }
+  
+  .memory-game {
+    display: grid;
+    grid-template-columns: repeat(4, 100px);
+    gap: 10px;
+    justify-content: center;
+  }
+  
+  .card {
+    width: 100px;
+    height: 100px;
+    perspective: 1000px;
+    animation: fadeIn 0.8s ease;
+  }
+  
+  .card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transform: rotateY(0);
+    transition: transform 0.6s ease-in-out;
+  }
+  
+  .card.flip .card-inner {
+    transform: rotateY(180deg);
+  }
+  
+  .front, .back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 8px;
+  }
+  
+  .front {
+    background: #2d2d3e;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+  }
+  
+  .back {
+    background-size: cover;
+    background-position: center;
+    transform: rotateY(180deg);
+  }
+  
+  #win-message {
+    margin-top: 20px;
+    font-size: 1.5rem;
+    color: #00ff88;
+  }
+  
+  .hidden {
+    display: none;
+  }
+  
+  /* Animation fade-in pour l'apparition des cartes */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: scale(0.9);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+  
+  /* Animation vibrante pour le clic */
+  .card:active {
+    animation: shake 0.4s ease;
+  }
+  
+  @keyframes shake {
+    0%, 100% {
+      transform: rotate(0);
+    }
+    25% {
+      transform: rotate(2deg);
+    }
+    75% {
+      transform: rotate(-2deg);
+    }
+  }
+  
+#start-button {
+    padding: 10px 20px;
+    font-size: 1rem;
+    color: white;
+    background-color: #3498db;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 20px;
+    transition: background-color 0.3s;
+  }
+  
+#start-button:hover {
+    background-color: #2c7cb6;
+  }
+  
+
+.scoreboard {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    font-size: 1rem;
+    color: #fff;
+  }
+  
