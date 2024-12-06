@@ -270,6 +270,7 @@ function tirerBalle() {
         iaDetruite = true; 
         balles = balles.filter(b => b !== balle);
         tempsDetruite = Date.now();
+        score += 1000;
         break;
     }
 }
