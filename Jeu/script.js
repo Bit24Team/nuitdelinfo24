@@ -98,6 +98,7 @@ obstacleImage.onload = balleImage.onload = coeurImage.onload = bombeImage.onload
     imagesChargees = true;
 };
 
+
 function creerObstacle() {
     const obstacle = {
         x: canvas.width,
