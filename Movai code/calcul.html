@@ -1,0 +1,41 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculatrice avec Images</title>
+    <link rel="stylesheet" href="calcul.css">
+</head>
+<body>
+    <div class="calculator">
+        <h1>Calculatrice</h1>
+        <div class="operands">
+            <div>
+                <img src="https://cdn-icons-png.flaticon.com/512/7534/7534983.png" alt="Opérande 1" class="operand" id="operand1">
+                <p class="count" id="count1">0</p>
+                <img src="https://cdn-icons-png.flaticon.com/512/1864/1864870.png" alt="Réduire Opérande 2" class="decrement" id="decrement1">
+            </div>
+            <div>
+                <img src="https://cdn-icons-png.flaticon.com/512/7534/7534983.png" alt="Opérande 2" class="operand" id="operand2">
+                <p class="count" id="count2">0</p>
+                <img src="https://cdn-icons-png.flaticon.com/512/1864/1864870.png" alt="Réduire Opérande 2" class="decrement" id="decrement2">
+            </div>
+        </div>
+
+        <div class="operators">
+            <img src="1.png" alt="Addition" class="operator" data-operator="+">
+            <img src="2.png" alt="Soustraction" class="operator" data-operator="-">
+            <img src="3.png" alt="Multiplication" class="operator" data-operator="*">
+            <img src="4.png" alt="Division" class="operator" data-operator="/">
+        </div>
+
+        <div class="result">
+            <h2>Résultat :</h2>
+            <p id="result">---</p>
+        </div>
+    </div>
+
+    <script src="calcul.js"></script>
+</body>
+</html>
