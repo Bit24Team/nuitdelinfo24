@@ -60,10 +60,71 @@
     <div style="display: none;">
         <img id="backgroundImage" src="background.jpg" alt="Background">
         <img id="tronc" src="tronc_d_arbre.png" alt="Tronc d'arbre">
+        <img id="obstacleImage" src="obstacle.png" alt="Obstacle">
+        <img id="balleImage" src="balle.png" alt="Balle">
+        <img id="coeurImage" src="coeur.png" alt="Cœur">
+        <img id="bombeImage" src="bombe.png" alt="Bombe">
+        <img id="tonneauImage" src="tonneau.png" alt="Tonneau">
+        <img id="joueurImage" src="joueur.png" alt="Joueur">
+        <img id="vagueImage" src="vague.png" alt="Vague">
+        <img id="iaimage" src="ia.png" alt="IA">
+        <img id="missileImage" src="missile.png" alt="Missile">
     </div>
 
     <!-- Script pour le jeu -->
-    <script src="script.js"></script>
+    <script>
+        // Fonction pour précharger les images
+        function preloadImages(imageIds, callback) {
+            let imagesLoaded = 0;
+            const totalImages = imageIds.length;
+            const images = {};
 
+            imageIds.forEach(function(imageId) {
+                const img = document.getElementById(imageId);
+                img.onload = function() {
+                    imagesLoaded++;
+                    if (imagesLoaded === totalImages) {
+                        callback(images);
+                    }
+                };
+                img.onerror = function() {
+                    console.error('Erreur de chargement de l\'image : ' + img.src);
+                };
+            });
+        }
+
+        // Liste des images à précharger
+        const imageIds = [
+            'backgroundImage',
+            'tronc',
+            'obstacleImage',
+            'balleImage',
+            'coeurImage',
+            'bombeImage',
+            'tonneauImage',
+            'joueurImage',
+            'vagueImage',
+            'iaimage',
+            'missileImage'
+        ];
+
+        // Précharger les images et commencer le jeu lorsque tout est chargé
+        preloadImages(imageIds, function(images) {
+            // Ici, vous pouvez commencer votre jeu car toutes les images sont chargées
+            console.log("Toutes les images ont été chargées !");
+            // Exemple : démarrer le jeu
+            startGame(images);
+        });
+
+        // Exemple de fonction de démarrage du jeu (à adapter selon votre logique)
+        function startGame(images) {
+            console.log("Le jeu commence...");
+            // Vous pouvez maintenant utiliser les images préchargées dans le jeu
+            // Par exemple, afficher l'image de fond
+            const canvas = document.getElementById('jeu');
+            const ctx = canvas.getContext('2d');
+            ctx.drawImage(images.backgroundImage, 0, 0);
+        }
+    </script>
 </body>
 </html>
