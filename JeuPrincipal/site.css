@@ -1,0 +1,197 @@
+/* Style général */
+body {
+    background-color: #292929;
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #ffffff;
+}
+
+header {
+    text-align: center;
+    padding: 20px;
+    background-color: #7a67b9;
+    color: rgb(221, 143, 255);
+}
+
+h1 {
+    font-size: 3em;
+    text-decoration: underline;
+    margin-bottom: 10px;
+}
+
+.paragrapheentete {
+    font-size: 1.2em;
+    line-height: 1.6;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    border-radius: 8px;
+    color: #ffffff; /* Couleur du texte pour une meilleure lisibilité */
+}
+
+.nuitdelinfocolor {
+    color: #e0a7ff;
+}
+
+.bold {
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+h2 {
+    text-align: center;
+    color: #248aff;
+    font-weight: lighter;
+    margin-top: 30px;
+}
+
+.div_list1 {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #161616;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    padding: 15px;
+    border-bottom: 1px solid #eee;
+}
+
+h3 {
+    font-size: 1.4em;
+    color: #b18dff;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #4B3F72;
+    color: white;
+}
+
+footer a {
+    color: #f0e6f0;
+    text-decoration: none;
+}
+
+/* Style de l'image cliquable */
+#image-container {
+    position: relative;
+    width: 800px;
+    height: 600px;
+    margin: 20px auto;
+    background-image: url('https://img.freepik.com/vecteurs-premium/contour-du-corps-masculin-feminin_125371-342.jpg?semt=ais_hybrid/625x625');
+    border: 2px solid #333;
+    border-radius: 8px;
+}
+
+.clickable-zone {
+    position: absolute;
+    width: 45px;
+    height: 40px;
+    cursor: pointer;
+}
+
+.popup {
+    position: absolute;
+    background-color: #fff;
+    padding: 10px;
+    border: 1px solid #333;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 10;
+    cursor: pointer;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+#image-container {
+    position: relative;
+    width: 800px;
+    height: 600px;
+    margin: 20px auto;
+    background-image: url('https://img.freepik.com/vecteurs-premium/contour-du-corps-masculin-feminin_125371-342.jpg?semt=ais_hybrid/625x625'); /* Utilise l'image téléchargée */
+    background-size: cover;
+    border: 2px solid black;
+}
+.clickable-zone {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+}
+.clickable-zone:hover {
+    transform: scale(2);
+}
+.zone-1 {
+    content: url('images/1.png');
+    background-color: transparent;
+    animation: pulseZone 1s infinite;
+}
+.zone-2 {
+    content: url('images/2.png');
+    animation: pulseZone 1s infinite;
+}
+.zone-3 {
+    content: url('images/3.png');
+    animation: pulseZone 1s infinite;
+}
+.zone-4 {
+    content: url('images/4.png');
+    animation: pulseZone 1s infinite;
+}
+.zone-5 {
+    content: url('images/5.png');
+    animation: pulseZone 1s infinite;
+}
+.zone-6 {
+    content: url('images/6.png');
+    animation: pulseZone 1s infinite;
+}
+.zone-7 {
+    content: url('images/7.png');
+    animation: pulseZone 1s infinite;
+}
+.zone-8 {
+    content: url('images/8.png');
+    animation: pulseZone 1s infinite;
+}
+.zone-9 {
+    content: url('images/9.png');
+    animation: pulseZone 1s infinite;
+}
+.zone-10 {
+    content: url('images/10.png');
+    animation: pulseZone 1s infinite;
+}
+
+@keyframes pulseZone {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}
+.popup {
+    position: absolute;
+    background-color: white;
+    border: 1px solid black;
+    padding: 10px;
+    display: none;
+    z-index: 10;
+    animation: fadeIn 0.5s ease-in-out;
+}
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
