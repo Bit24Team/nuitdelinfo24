@@ -14,8 +14,11 @@ const realMusicButton = document.getElementById('real-music'); // Nouveau bouton
 const menuButton = document.getElementById('menu-button');
 const menu = document.getElementById('menu');
 const option1Button = document.getElementById('option1');
+const option2Button = document.getElementById('option2');
+const option3Button = document.getElementById('option3');
+const option4Button = document.getElementById('option4');
 
-// Génère un nombre de clics aléatoire entre 50 et 200 pour le Rick Roll
+// Génère un nombre de clics aléatoire entre 200 et 400 pour le Rick Roll
 let randomRickRollClicks = Math.floor(Math.random() * (400 - 200 + 1)) + 200;
 
 // Créer un objet audio pour la musique
@@ -76,7 +79,15 @@ playMusicButton.addEventListener('click', () => {
 
 // Fonction pour gérer l'ouverture et la fermeture du menu
 menuButton.addEventListener('click', () => {
+    // Génère une valeur aléatoire entre 0% et 80% pour `right`
+    const randomRight = Math.random() * 80; // Limite pour éviter que le menu sorte de l'écran
+    menu.style.right = `${randomRight}%`;
     menu.classList.toggle('active');
+});
+
+// Fonction pour gérer le bouton "Help"
+option4Button.addEventListener('click', () => {
+    alert("T'a vraiment besoin d'aide pour cliquer sur un bouton ? 🤷‍♂️🤦‍♀️");
 });
 
 // Fonction pour améliorer le clic
@@ -90,6 +101,30 @@ option1Button.addEventListener('click', () => {
     } else {
         alert(`Vous n'avez pas assez de clics pour améliorer! Il vous faut ${clickUpgradeCost} clics.`);
     }
+});
+
+// Fonction pour le bouton Options
+option2Button.addEventListener('click', () => {
+    alert(
+        "🎭 Menu Options 🎭\n\n" +
+        "- Activer le mode inutile : ✅\n" +
+        "- Désactiver la gravité : 🚀\n" +
+        "- Couleur inverse (non disponible) : ❌\n" +
+        "- Améliorer votre vie (bientôt disponible) : 🤡"
+    );
+});
+
+// Fonction pour le bouton Statistiques
+option3Button.addEventListener('click', () => {
+    alert(
+        "📊 Statistiques 📊\n\n" +
+        `- Score actuel : ${score}\n` +
+        `- Nombre de clics sur le cookie : ${clickCount + clickcountrick}\n` +
+        `- Clics avant Rick Roll : ${
+            randomRickRollClicks - clickcountrick
+        }\n` +
+        `- Statistiques inutiles : 42 🤓`
+    );
 });
 
 // Fonction pour lancer la "vraie" musique
