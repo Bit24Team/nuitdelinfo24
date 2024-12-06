@@ -412,7 +412,7 @@ function iaTirerMissile() {
 }
 
 function activerIA() {
-    iaActive = true; A
+    iaActive = true;
 }
 
 
