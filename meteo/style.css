@@ -1,0 +1,56 @@
+/* Global Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(120deg, #1E90FF, #87CEFA);
+    color: #FFFFFF;
+    text-align: center;
+}
+
+.header {
+    background: rgba(0, 50, 100, 0.9);
+    padding: 20px 0;
+}
+
+header h1 {
+    font-size: 36px;
+    margin: 0;
+}
+
+/* Sections */
+section {
+    margin: 20px;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+section h2 {
+    color: #FFD700; /* Golden Yellow for highlights */
+    margin-bottom: 10px;
+}
+
+#weather-info, #ecosystem-info, #game-result {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 10px;
+    border-radius: 5px;
+}
+
+/* Game Buttons */
+.game-button {
+    background: #00CED1;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    margin: 10px;
+    border-radius: 5px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.game-button:hover {
+    background: #1E90FF;
+}

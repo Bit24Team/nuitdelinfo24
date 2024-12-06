@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Impact Climatique Océanique</title>
+    <link rel="stylesheet" href="style.css">
+    <script defer src="script.js"></script>
+</head>
+<body>
+    <header class="header">
+        <h1>Impact du Climat sur les Océans</h1>
+    </header>
+
+    <main>
+        <!-- Section pour l'impact climatique -->
+        <section id="climate-impact">
+            <h2>Températures Marines en Temps Réel</h2>
+            <div id="weather-info">
+                <p>Chargement des données météo...</p>
+            </div>
+        </section>
+
+        <!-- Section pour l'écosystème marin -->
+        <section id="marine-ecosystems">
+            <h2>Influence de la Météo sur la Vie Marine</h2>
+            <p id="ecosystem-info">En attente des données météorologiques...</p>
+        </section>
+
+        <!-- Section pour le jeu interactif -->
+        <section id="interactive-game">
+            <h2>Jeu Interactif: Prédire l'Impact Climatique</h2>
+            <p>Quelle sera la conséquence d'une hausse de la température de l'eau sur les récifs coralliens ?</p>
+            <button class="game-button" onclick="checkAnswer('positive')">Ils prospéreront</button>
+            <button class="game-button" onclick="checkAnswer('negative')">Ils mourront</button>
+            <p id="game-result"></p>
+        </section>
+    </main>
+</body>
+</html>
