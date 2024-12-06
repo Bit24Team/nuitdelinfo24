@@ -1,0 +1,97 @@
+/* Reset des marges et du padding */
+* {
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+}
+
+/* Style du body */
+body {
+   background-color: #377aed;
+   background-image: url('background.jpg');
+   background-size: cover;
+   background-position: center;
+   min-height: 100vh;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   padding: 0;
+}
+
+/* Style du canvas */
+#jeu {
+   display: block;
+   border: 0px solid rgba(0, 0, 0, 0);
+   background: rgba(76, 96, 211, 0);
+   background-position: center;
+   box-shadow: 0 0 10px rgba(0,0,0,0.3);
+   position: fixed;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+}
+
+/* Style pour les textes du jeu */
+.game-text {
+   color: rgba(255, 255, 0, 0);
+   font-family: Arial, sans-serif;
+   font-size: 20px;
+   position: absolute;
+   left: 10px;
+   top: 20px;
+}
+
+/* Style pour le message de game over */
+.game-over {
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+   color: rgb(255, 0, 0);
+   font-size: 40px;
+   font-family: Garamond, serif;
+   text-align: center;
+   display: none; /* Cacher par défaut */
+}
+
+/* Style pour la balle */
+.balle {
+   width: 50px;
+   height: 50px;
+   background-image: url('canon_ball.png');
+   background-size: cover;
+   position: absolute;
+   display: none;
+}
+
+/* Zone du jeu contenant le canvas et les éléments dynamiques */
+#gameArea {
+   position: relative;
+   width: 800px;
+   height: 400px;
+   overflow: hidden; /* Empêche le débordement des éléments */
+}
+
+/* Style pour les obstacles */
+.obstacle {
+   position: absolute;
+   width: 30px;
+   height: 100px;
+   background-image: url('tronc_d_arbre.png');
+   background-size: cover; /* Ajuste l'image à la taille de l'obstacle */
+   background-repeat: no-repeat;
+}
+
+/* Style pour les éléments d'information (score, vies, etc.) */
+.game-info {
+   position: absolute;
+   top: 10px;
+   left: 10px;
+   color: white;
+   font-size: 18px;
+   z-index: 10; /* Pour qu'ils soient au-dessus des autres éléments */
+}
+
+.game-info .game-text {
+   margin-bottom: 5px;
+}
