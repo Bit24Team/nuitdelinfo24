@@ -69,8 +69,9 @@ button:hover {
 /* Menu */
 #menu {
     position: absolute;
-    right: 50%;
-    top: 100px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     background-color: #003366;
     color: white;
     padding: 20px;
@@ -121,12 +122,12 @@ button:hover {
     background-color: #ffaa00;
 }
 
-
+/* Autres boutons de musique */
 #play-music {
     position: fixed;
-    top: 10px; /* Ajuste la distance du haut si nécessaire */
-    left: 10px; /* Positionne à 10px du côté gauche */
-    z-index: 10; /* Assure-toi que le bouton soit au-dessus des autres éléments */
+    top: 10px;
+    left: 10px;
+    z-index: 10;
     padding: 10px 15px;
     background-color: #ffcc00;
     color: rgb(0, 0, 0);
@@ -139,14 +140,13 @@ button:hover {
     background-color: #ffcc00;
 }
 
-
 #real-music {
     position: fixed;
-    bottom: 20px; /* 20px à partir du bas de la fenêtre */
-    left: 20px;   /* 20px à partir de la gauche de la fenêtre */
+    bottom: 20px;
+    left: 20px;
     z-index: 10;
     padding: 10px 15px;
-    background-color: #FF6347; /* Un autre style pour différencier le bouton */
+    background-color: #FF6347;
     color: black;
     border: none;
     border-radius: 5px;
@@ -155,4 +155,20 @@ button:hover {
 
 #real-music:hover {
     background-color: #FF4500;
+}
+
+/* Fenêtre qui fuit la souris */
+.evading-window {
+    width: 150px;
+    height: 100px;
+    background-color: lightblue;
+    color: black;
+    border: 2px solid blue;
+    border-radius: 10px;
+    position: absolute;
+    text-align: center;
+    line-height: 100px;
+    font-family: 'Press Start 2P', sans-serif;
+    font-size: 12px;
+    z-index: 1000;
 }
