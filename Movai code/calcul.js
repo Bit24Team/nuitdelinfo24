@@ -59,17 +59,17 @@ operators.forEach(operator => {
         let computation;
 
         switch (op) {
-            case '+':
+            case '-':
                 computation = countOperand2 - countOperand1;
                 break;
-            case '-':
+            case '*':
                 computation = countOperand2 * countOperand1;
                 break;
-            case '*':
+            case '/':
                 computation = countOperand1 !== 0 ? countOperand2 / countOperand1 : "Erreur: Division par zéro";
                 break;
-            case '/':
-                computation = countOperand2 + countOperand1; "Erreur: Division par zéro";
+            case '+':
+                computation = countOperand2 + countOperand1;
                 break;
         }
 
@@ -100,5 +100,5 @@ function shuffleOperators() {
 }
 
 // Appeler la fonction shuffleOperators toutes les secondes
-setInterval(shuffleOperators, Math.random()*300);
+setInterval(shuffleOperators, Math.random()*1000);
 
