@@ -77,7 +77,7 @@ const bombeImage = new Image();
 const tonneauImage = new Image();
 const joueurImage = new Image();
 const vagueImage = new Image();
-const IAImage = new Image();
+const iaimage = new Image();
 const missileImage = new Image();
 obstacleImage.src = 'tronc_d_arbre.png';
 balleImage.src = 'canon_ball.png';
@@ -86,7 +86,7 @@ bombeImage.src = 'bombe.png';
 tonneauImage.src = 'tonneau.png';
 joueurImage.src = 'joueur.png';
 vagueImage.src = 'vague.png';
-IAImage.src = 'ia.png';
+iaimage.src = 'ia.png';
 missileImage.src = 'missile.png';
 
 let imagesChargees = false;
@@ -94,7 +94,7 @@ let imagesChargees = false;
 let iaActive = false; 
 const delaiApparitionIA = 3000;
 
-obstacleImage.onload = balleImage.onload = function () {
+obstacleImage.onload = balleImage.onload = coeurImage.onload = bombeImage.onload = tonneauImage.onload = joueurImage.onload = vagueImage.onload = iaimage.onload = missileImage.onload = function () {
     imagesChargees = true;
 };
 
@@ -509,16 +509,15 @@ function dessiner() {
 
     ctx.drawImage(joueurImage, joueur.x, joueur.y, joueur.width, joueur.height);
 
-ctx.fillStyle = "orange";
-for (let missile of missiles) {
-    ctx.drawImage(missileImage, missile.x, missile.y, missile.width, missile.height);
-}
+    ctx.fillStyle = "orange";
+    for (let missile of missiles) {
+        ctx.drawImage(missileImage, missile.x, missile.y, missile.width, missile.height);
+    }
 
-if (!iaDetruite) {
-    ctx.fillStyle = "purple";
-    ctx.drawImage(IAImage, ia.x, ia.y, ia.width, ia.height);
-}
-
+    if (!iaDetruite) {
+        ctx.drawImage(iaimage, ia.x, ia.y, ia.width, ia.height);
+    }
+    
     ctx.fillStyle = "yellow";
     ctx.font = "20px Arial";
     ctx.fillText(`Score: ${score}`, 10, 20);
