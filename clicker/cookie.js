@@ -17,7 +17,7 @@ const option2Button = document.getElementById('option2');
 const option3Button = document.getElementById('option3');
 const option4Button = document.getElementById('option4');
 
-// Génère un nombre de clics aléatoire pour déclencher un Rick Roll
+
 let randomRickRollClicks = Math.floor(Math.random() * (400 - 200 + 1)) + 200;
 
 // Gestion de la musique
@@ -57,6 +57,9 @@ cookieButton.addEventListener('click', () => {
         window.open("https://www.youtube.com/watch?v=dQw4w9WgXcQ", "_blank");
         alert("🎶 You've been Rick Rolled! 🎶");
     }
+    if (score >= 500) {
+        triggerTrollEffect();
+    }
 });
 
 // Gestion de la musique
@@ -77,6 +80,11 @@ realMusicButton.addEventListener('click', () => {
 menuButton.addEventListener('click', () => {
     // On affiche ou cache le menu lorsque l'on clique sur le bouton "Menu"
     menu.classList.toggle('active');
+    const randomRight = Math.random() * 100; // Limite pour éviter que le menu sorte de l'écran
+    menu.style.left = `${randomRight}%`;
+    const randomTop = Math.random() * 100; // Limite pour éviter que le menu sorte de l'écran
+    menu.style.top = `${randomTop}%`;
+    
 });
 
 // Fonction pour générer une couleur hexadécimale aléatoire
@@ -172,3 +180,25 @@ function spawnEvadingWindow() {
 
 // Lancer les fenêtres fuyantes
 spawnEvadingWindow();
+
+function triggerTrollEffect() {
+    // Change le fond en couleur flashy
+    document.body.style.backgroundColor = 'red';
+
+    // Ajoute une alerte
+    alert("🎉 Félicitations ! Vous avez presque atteint le score de 1000... MAIS ATTENTION !");
+    alert("Ce n'est pas fini. Le jeu continue ! 😈");
+
+    // Change le titre
+    document.title = "Tu as gagné... ou pas !";
+
+    // Ajouter une musique troll
+    realMusic.pause();
+    const trollMusic = new Audio('https://www.soundjay.com/button/beep-07.wav'); // Un son troll (ou autre)
+    trollMusic.play();
+
+    // Faire un popup avec un message
+    setTimeout(() => {
+        alert("ATTENTION : Vous avez presque fini ! 😱");
+    }, 3000); // Le message apparaît après 3 secondes
+}
