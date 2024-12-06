@@ -1,4 +1,4 @@
-// Initialisation du score et du compteur de clics
+// Initialisation des variables globales 
 let score = 0;
 let clickCount = 0;
 let clickcountrick = 0;
@@ -8,9 +8,8 @@ let clickValue = 1; // Valeur initiale d'un clic
 // Sélection des éléments du DOM
 const scoreDisplay = document.getElementById('score');
 const cookieButton = document.getElementById('cookie');
-const backgroundMusic = document.getElementById('background-music');
 const playMusicButton = document.getElementById('play-music');
-const realMusicButton = document.getElementById('real-music'); // Nouveau bouton "Vraie Musique"
+const realMusicButton = document.getElementById('real-music');
 const menuButton = document.getElementById('menu-button');
 const menu = document.getElementById('menu');
 const option1Button = document.getElementById('option1');
@@ -18,34 +17,32 @@ const option2Button = document.getElementById('option2');
 const option3Button = document.getElementById('option3');
 const option4Button = document.getElementById('option4');
 
-// Génère un nombre de clics aléatoire entre 200 et 400 pour le Rick Roll
+// Génère un nombre de clics aléatoire pour déclencher un Rick Roll
 let randomRickRollClicks = Math.floor(Math.random() * (400 - 200 + 1)) + 200;
 
-// Créer un objet audio pour la musique
-let currentMusic = new Audio('musiquefond.mp3'); // Remplace par le chemin réel de la musique
-let realMusic = new Audio('HEYYEYAAEYAAAEYAEYAA.mp3'); // La vraie musique, à remplacer par le bon chemin
-
-// Fonction pour générer une position aléatoire sur l'écran
+// Gestion de la musique
+let currentMusic = new Audio('musiquefond.mp3');
+let realMusic = new Audio('HEYYEYAAEYAAAEYAEYAA.mp3');
+let goutteMusic = new Audio('Goutte.mp3');
+// Fonction pour générer une position aléatoire
 function getRandomPosition() {
     const maxWidth = window.innerWidth - cookieButton.offsetWidth;
     const maxHeight = window.innerHeight - cookieButton.offsetHeight;
-    
-    if (maxWidth <= 0 || maxHeight <= 0) {
-        return { x: 0, y: 0 };
-    }
-    
-    const randomX = Math.random() * maxWidth;
-    const randomY = Math.random() * maxHeight;
-    return { x: randomX, y: randomY };
+
+    return {
+        x: Math.random() * maxWidth,
+        y: Math.random() * maxHeight,
+    };
 }
 
-// Fonction pour gérer le clic sur le cookie
+// Gestion des clics sur le cookie
 cookieButton.addEventListener('click', () => {
     score += clickValue;
     scoreDisplay.textContent = `Score: ${score}`;
     clickCount++;
     clickcountrick++;
-
+    goutteMusic.play();
+    // Déplace le cookie après un certain nombre de clics
     const randomClicks = Math.floor(Math.random() * (20 - 5 + 1)) + 5;
     if (clickCount >= randomClicks) {
         clickCount = 0;
@@ -54,6 +51,7 @@ cookieButton.addEventListener('click', () => {
         cookieButton.style.top = `${newPos.y}px`;
     }
 
+    // Rick Roll aléatoire
     if (clickcountrick >= randomRickRollClicks) {
         clickcountrick = 0;
         window.open("https://www.youtube.com/watch?v=dQw4w9WgXcQ", "_blank");
@@ -61,36 +59,42 @@ cookieButton.addEventListener('click', () => {
     }
 });
 
-// Fonction pour gérer la musique de fond
+// Gestion de la musique
 playMusicButton.addEventListener('click', () => {
-    // Si de la musique est déjà en cours, on la stoppe
-    if (!currentMusic.paused) {
-        currentMusic.pause();
-        currentMusic.currentTime = 0; // Remet la musique au début
-    }
-    
-    // Joue la musique de fond
-    currentMusic.play().catch((error) => {
-        console.log("Erreur lors de la lecture de la musique :", error);
-    });
+    currentMusic.play();
     playMusicButton.style.display = 'none';
     realMusicButton.style.display = 'block';
 });
 
-// Fonction pour gérer l'ouverture et la fermeture du menu
+realMusicButton.addEventListener('click', () => {
+    currentMusic.pause();
+    currentMusic.currentTime = 0;
+    realMusic.play();
+    realMusicButton.style.display = 'none';
+});
+
+// Gestion du menu
 menuButton.addEventListener('click', () => {
-    // Génère une valeur aléatoire entre 0% et 80% pour `right`
-    const randomRight = Math.random() * 80; // Limite pour éviter que le menu sorte de l'écran
-    menu.style.right = `${randomRight}%`;
+    // On affiche ou cache le menu lorsque l'on clique sur le bouton "Menu"
     menu.classList.toggle('active');
 });
 
-// Fonction pour gérer le bouton "Help"
-option4Button.addEventListener('click', () => {
-    alert("T'a vraiment besoin d'aide pour cliquer sur un bouton ? 🤷‍♂️🤦‍♀️");
+// Fonction pour générer une couleur hexadécimale aléatoire
+function getRandomColor() {
+    const letters = '0123456789ABCDEF';
+    let color = '#';
+    for (let i = 0; i < 6; i++) {
+        color += letters[Math.floor(Math.random() * 16)];
+    }
+    return color;
+}
+
+// Fonction pour changer la couleur de fond à chaque clic sur une option
+option3Button.addEventListener('click', () => {
+    document.body.style.backgroundColor = getRandomColor();
 });
 
-// Fonction pour améliorer le clic
+// Amélioration du clic
 option1Button.addEventListener('click', () => {
     if (score >= clickUpgradeCost) {
         score -= clickUpgradeCost;
@@ -99,54 +103,72 @@ option1Button.addEventListener('click', () => {
         scoreDisplay.textContent = `Score: ${score}`;
         alert(`Clic amélioré! Coût suivant: ${clickUpgradeCost} clics.`);
     } else {
-        alert(`Vous n'avez pas assez de clics pour améliorer! Il vous faut ${clickUpgradeCost} clics.`);
+        alert(`Pas assez de clics ! Il vous faut ${clickUpgradeCost} clics.`);
     }
 });
 
-// Fonction pour le bouton Options
+// Statistiques
 option2Button.addEventListener('click', () => {
     alert(
-        "🎭 Menu Options 🎭\n\n" +
-        "- Activer le mode inutile : ✅\n" +
-        "- Désactiver la gravité : 🚀\n" +
-        "- Couleur inverse (non disponible) : ❌\n" +
-        "- Améliorer votre vie (bientôt disponible) : 🤡"
+        `📊 Statistiques 📊\n\n- Score actuel : ${score}\n- Valeur de clic : ${clickcountrick}\n`
     );
 });
 
-// Fonction pour le bouton Statistiques
-option3Button.addEventListener('click', () => {
-    alert(
-        "📊 Statistiques 📊\n\n" +
-        `- Score actuel : ${score}\n` +
-        `- Nombre de clics sur le cookie : ${clickCount + clickcountrick}\n` +
-        `- Clics avant Rick Roll : ${
-            randomRickRollClicks - clickcountrick
-        }\n` +
-        `- Statistiques inutiles : 42 🤓`
-    );
+// Aide
+option4Button.addEventListener('click', () => {
+    alert("Cliquez sur les boutons pour jouer. 🤷‍♂️");
 });
 
-// Fonction pour lancer la "vraie" musique
-realMusicButton.addEventListener('click', () => {
-    // Si de la musique est déjà en cours, on la stoppe
-    if (!currentMusic.paused) {
-        currentMusic.pause();
-        currentMusic.currentTime = 0;
+// Création d'une fenêtre qui fuit la souris
+function createEvadingWindow() {
+    const evadingWindow = document.createElement('div');
+    evadingWindow.textContent = "Catch me!";
+    evadingWindow.style.position = 'absolute';
+    evadingWindow.style.width = '150px';
+    evadingWindow.style.height = '100px';
+    evadingWindow.style.backgroundColor = 'lightblue';
+    evadingWindow.style.border = '2px solid blue';
+    evadingWindow.style.borderRadius = '10px';
+    evadingWindow.style.textAlign = 'center';
+    evadingWindow.style.lineHeight = '100px';
+    evadingWindow.style.cursor = 'pointer';
+    evadingWindow.style.zIndex = '1000';
+    document.body.appendChild(evadingWindow);
+
+    // Déplace la fenêtre à une position aléatoire
+    function moveWindow() {
+        const position = getRandomPosition();
+        evadingWindow.style.left = `${position.x}px`;
+        evadingWindow.style.top = `${position.y}px`;
     }
 
-    // Lance la vraie musique
-    realMusic.play().catch((error) => {
-        console.log("Erreur lors de la lecture de la musique :", error);
+    // Déplace la fenêtre si la souris s'approche
+    document.addEventListener('mousemove', (event) => {
+        const rect = evadingWindow.getBoundingClientRect();
+        const distance = Math.sqrt(
+            Math.pow(event.clientX - (rect.left + rect.width / 2), 2) +
+            Math.pow(event.clientY - (rect.top + rect.height / 2), 2)
+        );
+
+        if (distance < 150) {
+            moveWindow();
+        }
     });
 
-    realMusicButton.style.display = 'none';
-    // playMusicButton.style.display = 'block'; // Pour revenir à la musique de fond si nécessaire
-});
+    // Supprime la fenêtre après 10 secondes
+    setTimeout(() => {
+        document.body.removeChild(evadingWindow);
+    }, 10000);
+}
 
-// Lancer la musique de fond dès que la page est prête
-window.addEventListener('load', () => {
-    currentMusic.play().catch((error) => {
-        console.log("Erreur lors du démarrage de la musique de fond :", error);
-    });
-});
+// Fait apparaître une fenêtre fuyante à intervalles aléatoires
+function spawnEvadingWindow() {
+    const randomDelay = Math.random() * 3 * 60 ; // Entre 0 et 3 minutes
+    setTimeout(() => {
+        createEvadingWindow();
+        spawnEvadingWindow(); // Relance le spawn
+    }, randomDelay);
+}
+
+// Lancer les fenêtres fuyantes
+spawnEvadingWindow();
